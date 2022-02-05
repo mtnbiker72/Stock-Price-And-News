@@ -24,7 +24,6 @@ currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a")
 
 // Modal popup for search query examples "need help searching" with close button
 
-<<<<<<< HEAD
 fetch('https://yfapi.net/v1/finance/trending/US', {
     headers: {
     'accept': 'application/json',
@@ -47,7 +46,6 @@ function showTopTen(stock) {
     document.querySelector(".top-stocks6").innerHTML = stock.finance.result[0].quotes[5].symbol;
     document.querySelector(".top-stocks7").innerHTML = stock.finance.result[0].quotes[6].symbol;
 }
-=======
 
 showTrendingStocks(stockList);
 fetch('https://yfapi.net/data/2.5/weather?q=' + cityName + '&appid=' + apiKey)
@@ -57,4 +55,3 @@ fetch('https://yfapi.net/data/2.5/weather?q=' + cityName + '&appid=' + apiKey)
     .then(function (weatherData) {
        getWeatherData(weatherData);
     })
->>>>>>> 1b76c56faab1b188d784e8a5c09eeb32f84439d2
