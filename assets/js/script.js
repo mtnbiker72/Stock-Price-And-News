@@ -88,16 +88,7 @@ function showNews(stockNews) {
     document.querySelector(".article2").innerHTML = stockNews.data[0].title;
     document.querySelector(".article3").innerHTML = stockNews.data[0].url;
 }
-
-function showTopTen(stock) {
-        document.querySelector(".top-stocks1").innerHTML = stock.finance.result[0].quotes[0].symbol;
-        document.querySelector(".top-stocks2").innerHTML = stock.finance.result[0].quotes[1].symbol;
-        document.querySelector(".top-stocks3").innerHTML = stock.finance.result[0].quotes[2].symbol;
-        document.querySelector(".top-stocks4").innerHTML = stock.finance.result[0].quotes[3].symbol;
-        document.querySelector(".top-stocks5").innerHTML = stock.finance.result[0].quotes[4].symbol;
-        document.querySelector(".top-stocks6").innerHTML = stock.finance.result[0].quotes[5].symbol;
-        document.querySelector(".top-stocks7").innerHTML = stock.finance.result[0].quotes[6].symbol;
-    }
+// need to add results.html with article classes
 
 function getNews(stockName) {
         var stockEL = "";
