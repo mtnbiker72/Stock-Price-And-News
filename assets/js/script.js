@@ -1,3 +1,7 @@
+
+var currentDay = document.querySelector("#currentDay")
+
+currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a")
 //  Emerald - Create template in html
 // Emerald - moment.js time and date (or equivalent)
 
