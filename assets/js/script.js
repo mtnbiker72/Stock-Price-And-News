@@ -20,6 +20,10 @@
 
 // Modal popup for search query examples "need help searching" with close button
 
+var currentDay = document.querySelector("#currentDay")
+currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a")
+
+
 var modal = $('#help-modal')
 var helpBtn = $('#helpBtn')
 var span = $('#help-close')
