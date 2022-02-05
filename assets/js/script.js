@@ -40,11 +40,8 @@ $(window).click(function(event){
         modal.removeClass('is-active')
     }
 })
+// end modal
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d1da748250d5f5c32b70f85127c50089628b3c57
 fetch('https://yfapi.net/v1/finance/trending/US', {
     headers: {
     'accept': 'application/json',
@@ -59,13 +56,16 @@ fetch('https://yfapi.net/v1/finance/trending/US', {
 })
 
 function showTopTen(stock) {
-    document.querySelector(".top-stocks1").innerHTML = stock.finance.result[0].quotes[0].symbol;
-    document.querySelector(".top-stocks2").innerHTML = stock.finance.result[0].quotes[1].symbol;
-    document.querySelector(".top-stocks3").innerHTML = stock.finance.result[0].quotes[2].symbol;
-    document.querySelector(".top-stocks4").innerHTML = stock.finance.result[0].quotes[3].symbol;
-    document.querySelector(".top-stocks5").innerHTML = stock.finance.result[0].quotes[4].symbol;
-    document.querySelector(".top-stocks6").innerHTML = stock.finance.result[0].quotes[5].symbol;
-    document.querySelector(".top-stocks7").innerHTML = stock.finance.result[0].quotes[6].symbol;
+    document.querySelector("#top-stocks1").innerHTML = stock.finance.result[0].quotes[0].symbol;
+    document.querySelector("#top-stocks2").innerHTML = stock.finance.result[0].quotes[1].symbol;
+    document.querySelector("#top-stocks3").innerHTML = stock.finance.result[0].quotes[2].symbol;
+    document.querySelector("#top-stocks4").innerHTML = stock.finance.result[0].quotes[3].symbol;
+    document.querySelector("#top-stocks5").innerHTML = stock.finance.result[0].quotes[4].symbol;
+    document.querySelector("#top-stocks6").innerHTML = stock.finance.result[0].quotes[5].symbol;
+    document.querySelector("#top-stocks7").innerHTML = stock.finance.result[0].quotes[6].symbol;
+    document.querySelector("#top-stocks8").innerHTML = stock.finance.result[0].quotes[7].symbol;
+    document.querySelector("#top-stocks9").innerHTML = stock.finance.result[0].quotes[8].symbol;
+    document.querySelector("#top-stocks10").innerHTML = stock.finance.result[0].quotes[9].symbol;
 }
 
 
@@ -78,9 +78,6 @@ fetch('https://yfapi.net/data/2.5/weather?q=' + cityName + '&appid=' + apiKey)
        getWeatherData(weatherData);
     })
 
-<<<<<<< HEAD
-=======
 
 showTrendingStocks()
 
->>>>>>> d1da748250d5f5c32b70f85127c50089628b3c57
