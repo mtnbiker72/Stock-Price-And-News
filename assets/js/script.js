@@ -1,7 +1,3 @@
-
-var currentDay = document.querySelector("#currentDay")
-
-currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a")
 //  Emerald - Create template in html
 // Emerald - moment.js time and date (or equivalent)
 
@@ -23,6 +19,7 @@ currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a")
 
 
 // Modal popup for search query examples "need help searching" with close button
+
 var modal = $('#help-modal')
 var helpBtn = $('#helpBtn')
 var span = $('#help-close')
@@ -42,18 +39,21 @@ $(window).click(function(event){
 })
 // end modal
 
+// Get the top 10 stocks from Yahoo
+var key1 = config.YAHOO_KEY
 fetch('https://yfapi.net/v1/finance/trending/US', {
     headers: {
-    'accept': 'application/json',
-    'X-API-KEY': 'DR9oOHsUiU4aXTPgJZ4L945Jr9axhdZoTVlM2sd1'
-    }})
-
-.then(function (response) {
-    return response.json()
-    })
-.then(function (topStocks) {
-   showTopTen(topStocks) 
+        'accept': 'application/json',
+        'X-API-KEY': key1
+    }
 })
+
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (topStocks) {
+        showTopTen(topStocks)
+    })
 
 function showTopTen(stock) {
     document.querySelector("#top-stocks1").innerHTML = stock.finance.result[0].quotes[0].symbol;
@@ -69,15 +69,36 @@ function showTopTen(stock) {
 }
 
 
-showTrendingStocks(stockList);
-fetch('https://yfapi.net/data/2.5/weather?q=' + cityName + '&appid=' + apiKey)
+// Get stock news from StockData
+var key2 = config.STOCK_DATA_KEY;
+fetch('https://api.stockdata.org/v1/news/all?symbols=CMCSA&filter_entities=true&language=en&api_token=' + key2)
     .then(function (response) {
         return response.json()
-    }) // Convert data to json
-    .then(function (weatherData) {
-       getWeatherData(weatherData);
+    })
+    .then(function (stockNews) {
+        showNews(stockNews)
     })
 
+function showNews(stockNews) {
+    document.querySelector(".article1").innerHTML = stockNews.data[0].entities[0].name;
+    document.querySelector(".article2").innerHTML = stockNews.data[0].title;
+    document.querySelector(".article3").innerHTML = stockNews.data[0].url;
+}
 
-showTrendingStocks()
+function showTopTen(stock) {
+        document.querySelector(".top-stocks1").innerHTML = stock.finance.result[0].quotes[0].symbol;
+        document.querySelector(".top-stocks2").innerHTML = stock.finance.result[0].quotes[1].symbol;
+        document.querySelector(".top-stocks3").innerHTML = stock.finance.result[0].quotes[2].symbol;
+        document.querySelector(".top-stocks4").innerHTML = stock.finance.result[0].quotes[3].symbol;
+        document.querySelector(".top-stocks5").innerHTML = stock.finance.result[0].quotes[4].symbol;
+        document.querySelector(".top-stocks6").innerHTML = stock.finance.result[0].quotes[5].symbol;
+        document.querySelector(".top-stocks7").innerHTML = stock.finance.result[0].quotes[6].symbol;
+    }
 
+function getNews(stockName) {
+        var stockEL = "";
+        for (var i = 0; i < 9; i++) {
+            stockEL += `<div onClick="getStockNews('${stockName[i]}')">${stockName[i]}</div>`
+        }
+        stockName.innerHTML = stockEl;
+    }
