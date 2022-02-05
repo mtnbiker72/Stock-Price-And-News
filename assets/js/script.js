@@ -23,8 +23,28 @@ currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a")
 
 
 // Modal popup for search query examples "need help searching" with close button
+var modal = $('#help-modal')
+var helpBtn = $('#helpBtn')
+var span = $('#help-close')
 
+helpBtn.on('click', function(){
+    modal.addClass('is-active')
+});
 
+span.on('click', function(){
+    modal.removeClass('is-active')
+})
+
+$(window).click(function(event){
+    if (event.target == modal){
+        modal.removeClass('is-active')
+    }
+})
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> d1da748250d5f5c32b70f85127c50089628b3c57
 fetch('https://yfapi.net/v1/finance/trending/US', {
     headers: {
     'accept': 'application/json',
@@ -58,3 +78,9 @@ fetch('https://yfapi.net/data/2.5/weather?q=' + cityName + '&appid=' + apiKey)
        getWeatherData(weatherData);
     })
 
+<<<<<<< HEAD
+=======
+
+showTrendingStocks()
+
+>>>>>>> d1da748250d5f5c32b70f85127c50089628b3c57
