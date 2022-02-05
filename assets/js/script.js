@@ -20,6 +20,25 @@
 
 // Modal popup for search query examples "need help searching" with close button
 
+var modal = $('#help-modal')
+var helpBtn = $('#helpBtn')
+var span = $('#help-close')
+
+helpBtn.on('click', function(){
+    modal.addClass('is-active')
+});
+
+span.on('click', function(){
+    modal.removeClass('is-active')
+})
+
+$(window).click(function(event){
+    if (event.target == modal){
+        modal.removeClass('is-active')
+    }
+})
+// end modal
+
 // Get the top 10 stocks from Yahoo
 var key1 = config.YAHOO_KEY
 fetch('https://yfapi.net/v1/finance/trending/US', {
@@ -35,6 +54,20 @@ fetch('https://yfapi.net/v1/finance/trending/US', {
     .then(function (topStocks) {
         showTopTen(topStocks)
     })
+
+function showTopTen(stock) {
+    document.querySelector("#top-stocks1").innerHTML = stock.finance.result[0].quotes[0].symbol;
+    document.querySelector("#top-stocks2").innerHTML = stock.finance.result[0].quotes[1].symbol;
+    document.querySelector("#top-stocks3").innerHTML = stock.finance.result[0].quotes[2].symbol;
+    document.querySelector("#top-stocks4").innerHTML = stock.finance.result[0].quotes[3].symbol;
+    document.querySelector("#top-stocks5").innerHTML = stock.finance.result[0].quotes[4].symbol;
+    document.querySelector("#top-stocks6").innerHTML = stock.finance.result[0].quotes[5].symbol;
+    document.querySelector("#top-stocks7").innerHTML = stock.finance.result[0].quotes[6].symbol;
+    document.querySelector("#top-stocks8").innerHTML = stock.finance.result[0].quotes[7].symbol;
+    document.querySelector("#top-stocks9").innerHTML = stock.finance.result[0].quotes[8].symbol;
+    document.querySelector("#top-stocks10").innerHTML = stock.finance.result[0].quotes[9].symbol;
+}
+
 
 // Get stock news from StockData
 var key2 = config.STOCK_DATA_KEY;
