@@ -19,7 +19,23 @@
 
 
 // Modal popup for search query examples "need help searching" with close button
+var modal = $('#help-modal')
+var helpBtn = $('#helpBtn')
+var span = $('#help-close')
 
+helpBtn.on('click', function(){
+    modal.addClass('is-active')
+});
+
+span.on('click', function(){
+    modal.removeClass('is-active')
+})
+
+$(window).click(function(event){
+    if (event.target == modal){
+        modal.removeClass('is-active')
+    }
+})
 
 showTrendingStocks(stockList);
 fetch('https://yfapi.net/data/2.5/weather?q=' + cityName + '&appid=' + apiKey)
@@ -29,3 +45,5 @@ fetch('https://yfapi.net/data/2.5/weather?q=' + cityName + '&appid=' + apiKey)
     .then(function (weatherData) {
        getWeatherData(weatherData);
     })
+
+showTrendingStocks()
