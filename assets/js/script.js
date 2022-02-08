@@ -78,3 +78,7 @@ function showNews(stockNews) {
     document.querySelector(".article3").innerHTML = stockNews.data[0].url;
 }
 
+//clear local storage (TODO: clear buttons created using custom stock tickers)
+$('#clear').on('click', function(){
+    localStorage.clear();
+})
