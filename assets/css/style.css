@@ -7,4 +7,15 @@ text-align: center;
 nav {
 font-family: 'Permanent Marker', cursive;
 font-size: 20px;
+display:flex;
+justify-content:space-between
 }
+
+p {
+    transition: background-color .5s;
+  }
+  
+p:hover {
+    background-color: lightblue;
+  }
+

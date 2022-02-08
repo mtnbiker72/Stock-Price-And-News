@@ -78,3 +78,12 @@ function showNews(stockNews) {
     document.querySelector(".article3").innerHTML = stockNews.data[0].url;
 }
 
+document.addEventListener("click", function(event) {
+    console.log(event.target)
+    if (event.target.classList.contains("title")) {
+    // alert ("I have been clicked")   
+    document.location.replace("./newspage.html")
+    }
+    })
+
+
