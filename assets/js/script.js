@@ -23,7 +23,6 @@
 var currentDay = document.querySelector("#currentDay")
 currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a")
 
-
 var modal = $('#help-modal')
 var helpBtn = $('#helpBtn')
 var span = $('#help-close')
@@ -55,7 +54,7 @@ fetch('https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=' + 
     })
 
 function showTopTen(stock) {
-    for (let i = 1; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
         var topStock = `<p class="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol}</p>`
         document.querySelector("#top-stocks" + i).innerHTML = topStock;
     }
@@ -72,26 +71,6 @@ function getNews(stockSymbol) {
             showNews(stockNews)
         })
 }
-
-// Get the top 10 stocks from Yahoo
-// const key1 = config.YAHOO_KEY;
-// fetch('https://yfapi.net/v1/finance/trending/US', {
-//     headers: {
-//         'accept': 'application/json',
-//         'X-API-KEY': key1
-//     }
-// })
-
-    // .then(function (response) {
-    //     return response.json()
-    // })
-    // .then(function (topStocks) {
-    //     showTopTen(topStocks)
-    // })
-
-
-
-
 
 function showNews(stockNews) {
     document.querySelector(".article1").innerHTML = stockNews.data[0].entities[0].name;
