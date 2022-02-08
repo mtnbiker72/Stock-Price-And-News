@@ -28,30 +28,25 @@ var modal = $('#help-modal')
 var helpBtn = $('#helpBtn')
 var span = $('#help-close')
 
-helpBtn.on('click', function(){
+helpBtn.on('click', function () {
     modal.addClass('is-active')
 });
 
-span.on('click', function(){
+span.on('click', function () {
     modal.removeClass('is-active')
 })
 
-$(window).click(function(event){
-    if (event.target == modal){
+$(window).click(function (event) {
+    if (event.target == modal) {
         modal.removeClass('is-active')
     }
 })
 // end modal
 
-// Get the top 10 stocks from Yahoo
-var key1 = config.YAHOO_KEY
-fetch('https://yfapi.net/v1/finance/trending/US', {
-    headers: {
-        'accept': 'application/json',
-        'X-API-KEY': key1
-    }
-})
+// Get top 10 gainers in today's market
+const key3 = "ff68f94336a3d6f23d221fad0ad0c114";
 
+fetch('https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=' + key3)
     .then(function (response) {
         return response.json()
     })
@@ -60,40 +55,54 @@ fetch('https://yfapi.net/v1/finance/trending/US', {
     })
 
 function showTopTen(stock) {
-    document.querySelector("#top-stocks1").innerHTML = stock.finance.result[0].quotes[0].symbol;
-    document.querySelector("#top-stocks2").innerHTML = stock.finance.result[0].quotes[1].symbol;
-    document.querySelector("#top-stocks3").innerHTML = stock.finance.result[0].quotes[2].symbol;
-    document.querySelector("#top-stocks4").innerHTML = stock.finance.result[0].quotes[3].symbol;
-    document.querySelector("#top-stocks5").innerHTML = stock.finance.result[0].quotes[4].symbol;
-    document.querySelector("#top-stocks6").innerHTML = stock.finance.result[0].quotes[5].symbol;
-    document.querySelector("#top-stocks7").innerHTML = stock.finance.result[0].quotes[6].symbol;
-    document.querySelector("#top-stocks8").innerHTML = stock.finance.result[0].quotes[7].symbol;
-    document.querySelector("#top-stocks9").innerHTML = stock.finance.result[0].quotes[8].symbol;
-    document.querySelector("#top-stocks10").innerHTML = stock.finance.result[0].quotes[9].symbol;
+    for (let i = 1; i < 10; i++) {
+        var topStock = `<p class="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol}</p>`
+        document.querySelector("#top-stocks" + i).innerHTML = topStock;
+    }
 }
 
+function getNews(stockSymbol) {
+    // Get stock news from StockData
+    var key2 = config.STOCK_DATA_KEY;
+    fetch(`https://api.stockdata.org/v1/news/all?symbols=${stockSymbol}&filter_entities=true&language=en&api_token=` + key2)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (stockNews) {
+            showNews(stockNews)
+        })
+}
 
-// Get stock news from StockData
-var key2 = config.STOCK_DATA_KEY;
-fetch('https://api.stockdata.org/v1/news/all?symbols=CMCSA&filter_entities=true&language=en&api_token=' + key2)
-    .then(function (response) {
-        return response.json()
-    })
-    .then(function (stockNews) {
-        showNews(stockNews)
-    })
+// Get the top 10 stocks from Yahoo
+// const key1 = config.YAHOO_KEY;
+// fetch('https://yfapi.net/v1/finance/trending/US', {
+//     headers: {
+//         'accept': 'application/json',
+//         'X-API-KEY': key1
+//     }
+// })
+
+    // .then(function (response) {
+    //     return response.json()
+    // })
+    // .then(function (topStocks) {
+    //     showTopTen(topStocks)
+    // })
+
+
+
+
 
 function showNews(stockNews) {
     document.querySelector(".article1").innerHTML = stockNews.data[0].entities[0].name;
     document.querySelector(".article2").innerHTML = stockNews.data[0].title;
     document.querySelector(".article3").innerHTML = stockNews.data[0].url;
 }
-// need to add results.html with article classes
 
-function getNews(stockName) {
-        var stockEL = "";
-        for (var i = 0; i < 9; i++) {
-            stockEL += `<div onClick="getStockNews('${stockName[i]}')">${stockName[i]}</div>`
-        }
-        stockName.innerHTML = stockEl;
-    }
+// function getNews(stockName) {
+//         var stockEL = "";
+//         for (var i = 0; i < 9; i++) {
+//             stockEL += `<div onClick="getStockNews('${stockName[i]}')">${stockName[i]}</div>`
+//         }
+//         stockName.innerHTML = stockEl;
+//     }
