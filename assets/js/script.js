@@ -106,3 +106,8 @@ function showNews(stockNews) {
 //         }
 //         stockName.innerHTML = stockEl;
 //     }
+
+// Clears local storage
+$('#clear').on('click', function(){
+    localStorage.clear();
+})
