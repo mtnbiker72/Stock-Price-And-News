@@ -20,8 +20,9 @@
 
 // Modal popup for search query examples "need help searching" with close button
 
-var currentDay = document.querySelector("#currentDay")
-currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a")
+var currentDay = document.querySelector("#currentDay");
+currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a");
+const searchButton = document.querySelector("#search-button");
 
 var modal = $('#help-modal')
 var helpBtn = $('#helpBtn')
@@ -46,7 +47,7 @@ $(window).click(function (event) {
 const key3 = "ff68f94336a3d6f23d221fad0ad0c114";
 
 fetch('https://8ab2843d-3f90-4753-b9ef-06f11ad750c0.mock.pstmn.io/api/v3/stock_market/gainers?apikey=' + key3)
-// fetch('https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=' + key3)
+    // fetch('https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=' + key3)
     .then(function (response) {
         return response.json()
     })
@@ -62,19 +63,19 @@ function showTopTen(stock) {
 }
 
 function getNews(topStock) {
-fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=" + topStock + "&pageNumber=1&pageSize=10&autoCorrect=true&fromPublishedDate=null&toPublishedDate=null", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
-		"x-rapidapi-key": "7b71e725f5msh9f62bb1a43745dep1a87a8jsnefdb78a01e7e"
-	}
-})
-.then(function (response) {
-	return response.json()
-})
-.then(function (stockNews) {
-    showNews(stockNews)
-})
+    fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=" + topStock + "&pageNumber=1&pageSize=10&autoCorrect=true&fromPublishedDate=null&toPublishedDate=null", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
+            "x-rapidapi-key": "7b71e725f5msh9f62bb1a43745dep1a87a8jsnefdb78a01e7e"
+        }
+    })
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (stockNews) {
+            showNews(stockNews)
+        })
 }
 
 // // Get stock news from NewsAPI
@@ -105,11 +106,15 @@ function showNews(stockNews) {
 //     }
 //     })
 
-// // Once submit button is pressed, go to getFavoriteStock function
-// searchButton.addEventListener("click", getFavoriteStock);
+// Once search button is pressed, go to getFavoriteStock function
+searchButton.addEventListener("click", getFavoriteStockNews);
+
+function getFavoriteStockNews() {
+    getNews($("input" ).val());
+}
 
 // Clears local storage
-$('#clear').on('click', function(){
+$('#clear').on('click', function () {
     localStorage.clear();
 })
 
