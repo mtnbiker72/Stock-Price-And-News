@@ -61,48 +61,52 @@ function showTopTen(stock) {
     }
 }
 
-// Get stock news from NewsAPI
-function getNews(stockSymbol) {
-    var key4 = "1d4f0b3a2439429bb730c61b4f6d2b51"
-    fetch(`GET https://newsapi.org/v2/everything?q=${stockSymbol}&apiKey=` + key4)
-
-        .then(function (response) {
-            return response.json()
-        })
-        .then(function (stockNews) {
-            showNews(stockNews)
-        })
+function getNews(topStock) {
+fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=" + topStock + "&pageNumber=1&pageSize=10&autoCorrect=true&fromPublishedDate=null&toPublishedDate=null", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "contextualwebsearch-websearch-v1.p.rapidapi.com",
+		"x-rapidapi-key": "7b71e725f5msh9f62bb1a43745dep1a87a8jsnefdb78a01e7e"
+	}
+})
+.then(function (response) {
+	return response.json()
+})
+.then(function (stockNews) {
+    showNews(stockNews)
+})
 }
+
+// // Get stock news from NewsAPI
+// function getNews(topStock) {
+//     const key4 = "1d4f0b3a2439429bb730c61b4f6d2b51";
+//     fetch(`https://f6e154cc-b08a-4dac-abf1-230c711a10cc.mock.pstmn.io/v2/everything?q=${topStock}&apiKey=` + key4)
+
+//         .then(function (response) {
+//             return response.json()
+//         })
+//         .then(function (stockNews) {
+//             showNews(stockNews)
+//         })
+// }
 
 function showNews(stockNews) {
-    document.querySelector(".article1").innerHTML = stockNews.data[0].entities[0].name;
-    document.querySelector(".article2").innerHTML = stockNews.data[0].title;
-    document.querySelector(".article3").innerHTML = stockNews.data[0].url;
-    document.querySelector(".article1").innerHTML = stockNews.data[1].entities[0].name;
-    document.querySelector(".article2").innerHTML = stockNews.data[1].title;
-    document.querySelector(".article3").innerHTML = stockNews.data[1].url;
+    document.querySelector(".article1-1").innerHTML = stockNews.value[0].title
+    document.querySelector(".article1-2").innerHTML = stockNews.value[0].description;
+    document.querySelector(".article2-1").innerHTML = stockNews.value[1].title
+    document.querySelector(".article2-2").innerHTML = stockNews.value[1].description;
 }
 
-document.addEventListener("click", function(event) {
-    console.log(event.target)
-    if (event.target.classList.contains("title")) {
-    // alert ("I have been clicked")   
-    document.location.replace("./newspage.html")
-    }
-    })
+// document.addEventListener("click", function(event) {
+//     console.log(event.target)
+//     if (event.target.classList.contains("title")) {
+//     // alert ("I have been clicked")   
+//     document.location.replace("./newspage.html")
+//     }
+//     })
 
-// Once submit button is pressed, go to getFavoriteStock function
-searchButton.addEventListener("click", getFavoriteStock);
-
-function getFavoriteStock(favoriteStock) {
-    fetch('https://financialmodelingprep.com/api/v3/search?query=' + favoriteStock + '&limit=10&exchange=NASDAQ&apikey= + key3')
-    .then(function (response) {
-        return response.json()
-    })
-    .then(function (data) {
-        console.log(data);
-    })   
-}
+// // Once submit button is pressed, go to getFavoriteStock function
+// searchButton.addEventListener("click", getFavoriteStock);
 
 // Clears local storage
 $('#clear').on('click', function(){
