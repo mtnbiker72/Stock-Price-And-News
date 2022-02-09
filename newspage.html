@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance for the ShyGuys</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+    <!--The Nav Bar-->
+    <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://mtnbiker72.github.io/Project1-Finance/">
+                <img src="./assets/shyguylogo2.jpeg"
+                    alt="Finance for ShyGuys is a fictional company not associated with Super Mario">
+            </a>
+            <span id="currentDay"> </span>
+        </div>
+        <!-- Trigger/Open The Modal -->
+        <button id="helpBtn" class="js-modal-trigger button is-danger" data-target="help-modal">Need Help
+            Searching?</button>
+    </nav>
+
+    <!-- The Modal -->
+    <div id="help-modal" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+            <div class="box">
+                <p>Modal JS example</p>
+                <!-- Your content -->
+            </div>
+        </div>
+        <button id="help-close" class="modal-close is-large js-modal-trigger button is-danger"
+            data-target="modal-js-example" aria-label="close"></button>
+    </div>
+    </div>
+
+    <h1>ShyGuy Finance</h1>
+
+    <div class="control">
+        <input class="input is-hovered is-rounded is-normal" type="text"
+            placeholder="Search a stock ticker for news results">
+    </div>
+<br>
+    <div class="tile is-ancestor">
+        <div class="tile is-12 is-parent notification is-info">
+            <div class="tile is-child box">
+                <p class="article-title">One</p>
+                <div class="article-content"></div>
+            </div>
+            <div class="tile is-child box">
+                <p class="article-title">Two</p>
+                <div class="article-content"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script type='text/javascript' src='./assets/js/config.js'></script>
+</body>
+
+</html>
