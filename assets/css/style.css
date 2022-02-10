@@ -47,3 +47,10 @@ font-size: 15px;
 display: flex; 
 justify-content: space-around;
 }
+
+.content {
+font-family: 'Permanent Marker', cursive;
+font-size: 15px;
+display: flex; 
+justify-content: space-around;
+}
