@@ -19,7 +19,6 @@ WHEN I click on one of said companies' names
 THEN a series of news stories are generated about that company, within the last week/month or so
 
 We used the APIS 'Financial modeling prep' (https://financialmodelingprep.com)
-
 (Since the free version is rate limited, we used Postman's mock-server for testing)
 
  'Contextual Web Search' (https://contextualwebsearch-websearch-v1.p.rapidapi.com)'
