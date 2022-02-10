@@ -19,7 +19,9 @@ WHEN I click on one of said companies' names
 THEN a series of news stories are generated about that company, within the last week/month or so
 
 We used the APIS 'Financial modeling prep' (https://financialmodelingprep.com)
+
 (Since the free version is rate limited, we used Postman's mock-server for testing)
+
  'Contextual Web Search' (https://contextualwebsearch-websearch-v1.p.rapidapi.com)'
 
 When the user opens the page, the top ten 'gaining' stocks are fetched into the code, then their stock symbols (i.e. PTON for Peloton) are used as the text for a series of buttons.
