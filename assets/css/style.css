@@ -17,11 +17,11 @@ display:flex;
 justify-content:space-between
 }
 
-p {
+.is-info {
     transition: background-color .5s;
   }
   
-p:hover {
+.is-info:hover {
     background-color: lightblue;
   }
 
@@ -36,7 +36,14 @@ p:hover {
 }
 
 .dropdown {
-    margin-left: 22rem;
+    margin-left: 37rem;
     font-family: 'Permanent Marker', cursive;
     font-size: 15px;
+}
+
+.control {
+font-family: 'Permanent Marker', cursive;
+font-size: 15px;
+display: flex; 
+justify-content: space-around;
 }
