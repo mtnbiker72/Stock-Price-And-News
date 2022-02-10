@@ -22,7 +22,7 @@
           alt="Finance for ShyGuys is a fictional company not associated with Super Mario">
       </a>
       <span id="currentDay"> </span>
-    </div>    
+    </div>
     <!-- Trigger/Open The Modal -->
     <button id="helpBtn" class="js-modal-trigger button is-danger" data-target="help-modal">Need Help
       Searching?</button>
@@ -48,9 +48,9 @@
   <div class="control">
     <input class="input is-hovered is-rounded is-normal" type="text"
       placeholder="Search a stock ticker for news results">
-    <button id="search-button" class="btn btn-primary btn-block">Search for Stock Name</button> 
+    <button id="search-button" class="btn btn-primary btn-block">Search for Stock Name</button>
   </div>
-<br>
+  <br>
   <div class="tile is-ancestor">
     <div class="tile is-parent is-vertical is-6">
       <article id="top-stocks0" class="tile is-child notification is-info">
@@ -77,10 +77,6 @@
         <p class="title">Vertical...</p>
         <p class="subtitle">Top tile</p>
       </article>
-      <article id="favorite-stock0" class="fav-tile tile is-child notification is-info">
-        <p class="title">Vertical...</p>
-        <p class="subtitle">Top tile</p>
-      </article>
     </div>
 
     <div class="tile is-parent is-vertical is-6">
@@ -104,25 +100,47 @@
         <p class="title">...tiles</p>
         <p class="subtitle">Bottom tile</p>
       </article>
-      <article id="favorite-stock1" class="fav-tile tile is-child notification is-info">
-        <p class="title">...tiles</p>
-        <p class="subtitle">Bottom tile</p>
-      </article>
     </div>
   </div>
 
+  <div class="tile is-ancestor">
+    <div class="tile is-parent is-vertical is-6">
+      <article id="favorite-stock0" class="fav-tile tile is-child notification box">
+        <div class="article-title"></div>
+        <div class="article-description"></div>
+        
+      </article>
+      <article id="favorite-stock1" class="fav-tile tile is-child notification box">
+        <div class="article-title"></div>
+        <div class="article-description"></div>
+        
+      </article>
+    </div>
+
+    <div class="tile is-parent is-vertical is-6">
+      <article id="favorite-stock2" class="fav-tile tile is-child notification box">
+        <div class="article-title"></div>
+        <div class="article-description"></div>
+      </article>
+      <article id="favorite-stock3" class="fav-tile tile is-child notification box">
+        <div class="article-title"></div>
+        <div class="article-description"></div>
+      </article>
+    </div>
+  </div>
+  
 
 
-<!-- Heather Stuff -->
-<div class="article1-1"> </div>
-<div class="article1-2"> </div>
-<div class="article1-3"> </div>
-<div class="article2-1"> </div>
-<div class="article2-2"> </div>
-<div class="article2-3"> </div>
+  <!-- Heather Stuff -->
+  <div class="article1-1"> </div>
+  <div class="article1-2"> </div>
+  <div class="article1-3"> </div>
+  <div class="article2-1"> </div>
+  <div class="article2-2"> </div>
+  <div class="article2-3"> </div>
 
 
-<button id="clear" class="button is-danger">Clear your custom Stock Tickers</button>
+  <button id="clear" class="button is-danger">Clear your custom Stock Tickers</button>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

@@ -99,13 +99,17 @@ function getNews(topStock) {
 //         })
 // }
 
+// Display Stock News for the Favorites Buttons
+var newsTitle = document.querySelectorAll(".article-title")
+var newsDescription = document.querySelectorAll(".article-description")
+// var newsURL = documents.querySelectorAll(".article-url")
+
+for (let i = 0; i < 5; i++) {
 function showNews(stockNews) {
-    document.querySelector(".article1-1").innerHTML = stockNews.value[0].title
-    document.querySelector(".article1-2").innerHTML = stockNews.value[0].description;
-    document.querySelector(".article1-2").innerHTML = stockNews.value[0].url;
-    document.querySelector(".article2-1").innerHTML = stockNews.value[1].title
-    document.querySelector(".article2-2").innerHTML = stockNews.value[1].description;
-    document.querySelector(".article2-2").innerHTML = stockNews.value[1].url;
+    newsTitle[i].innerHTML = stockNews.value[i].title
+    newsDescription[i].innerHTML = stockNews.value[i].description;
+    newsURL[i].innerHTML = stockNews.value[i].url;
+}
 }
 
 // document.addEventListener("click", function(event) {
