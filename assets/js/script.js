@@ -155,8 +155,7 @@ function showNews(stockNews) {
     newsTitle[i].innerHTML = stockNews.value[0].title
     newsDescription[i].innerHTML = stockNews.value[0].description;
     // newsURL[i].innerHTML = stockNews.value[0].url;
-}
-
+}}
 
 // document.addEventListener("click", function(event) {
 //     console.log(event.target)
