@@ -4,6 +4,12 @@ font-size: 90px;
 text-align: center;
 }
 
+h2 {
+font-family: 'Permanent Marker', cursive;
+font-size: 30px;
+text-align: center; 
+}
+
 nav {
 font-family: 'Permanent Marker', cursive;
 font-size: 20px;
@@ -27,4 +33,10 @@ p:hover {
 
 .fav-tile {
   background-color: orange !important;
+}
+
+.dropdown {
+    margin-left: 22rem;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 15px;
 }

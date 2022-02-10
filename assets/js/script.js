@@ -20,6 +20,43 @@
 
 // Modal popup for search query examples "need help searching" with close button
 
+// Get all dropdowns on the page that aren't hoverable.
+const dropdowns = document.querySelectorAll('.dropdown:not(.is-hoverable)');
+
+if (dropdowns.length > 0) {
+  // For each dropdown, add event handler to open on click.
+  dropdowns.forEach(function(el) {
+    el.addEventListener('click', function(e) {
+      e.stopPropagation();
+      el.classList.toggle('is-active');
+    });
+  });
+
+  // If user clicks outside dropdown, close it.
+  document.addEventListener('click', function(e) {
+    closeDropdowns();
+  });
+}
+
+/*
+ * Close dropdowns by removing `is-active` class.
+ */
+function closeDropdowns() {
+  dropdowns.forEach(function(el) {
+    el.classList.remove('is-active');
+  });
+}
+
+// Close dropdowns if ESC pressed
+document.addEventListener('keydown', function (event) {
+  let e = event || window.event;
+  if (e.key === 'Esc' || e.key === 'Escape') {
+    closeDropdowns();
+  }
+});
+
+
+
 // set up general variables
 var currentDay = document.querySelector("#currentDay");
 currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a");
@@ -109,12 +146,17 @@ var newsDescription = document.querySelectorAll(".article-description")
 
 
 function showNews(stockNews) {
+    var newsTitle = document.querySelectorAll(".article-title" + i)
+    console.log(newsTitle)
+    var newsDescription = document.querySelectorAll(".article-description" + i)
+    console.log(newsDescription)
+//  var newsURL = documents.querySelectorAll(".article-url")
     for (let i = 0; i < 5; i++) {
-        newsTitle[i].innerHTML = stockNews.value[i].title
-        newsDescription[i].innerHTML = stockNews.value[i].description;
-        newsURL[i].innerHTML = stockNews.value[i].url;
-    }
+    newsTitle[i].innerHTML = stockNews.value[0].title
+    newsDescription[i].innerHTML = stockNews.value[0].description;
+    // newsURL[i].innerHTML = stockNews.value[0].url;
 }
+
 
 // document.addEventListener("click", function(event) {
 //     console.log(event.target)
