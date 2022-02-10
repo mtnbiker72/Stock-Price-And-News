@@ -86,19 +86,6 @@ function getNews(topStock) {
         })
 }
 
-// // Get stock news from NewsAPI
-// function getNews(topStock) {
-//     const key4 = "1d4f0b3a2439429bb730c61b4f6d2b51";
-//     fetch(`https://f6e154cc-b08a-4dac-abf1-230c711a10cc.mock.pstmn.io/v2/everything?q=${topStock}&apiKey=` + key4)
-
-//         .then(function (response) {
-//             return response.json()
-//         })
-//         .then(function (stockNews) {
-//             showNews(stockNews)
-//         })
-// }
-
 function showNews(stockNews) {
     document.querySelector(".article1-1").innerHTML = stockNews.value[0].title
     document.querySelector(".article1-2").innerHTML = stockNews.value[0].description;
@@ -130,15 +117,21 @@ function getFavoriteStockNews() {
 }
 
 
+// Update the favorite stock tile and, when clicked, get the news
 function showFavoriteStocks() {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 4; i++) {
         var favoriteStock = `<p class="title" onClick="getNews('${favoriteStocks[i]}')">${favoriteStocks[i]}</p>`
         document.querySelector("#favorite-stock" + i).innerHTML = favoriteStock;
     }
-
 }
+
 // Clears local storage
 $('#clear').on('click', function () {
     localStorage.clear();
+    $("#favorite-stock0").empty();
+    $("#favorite-stock1").empty();
+    $("#favorite-stock2").empty();
+    $("#favorite-stock3").empty();
+    favoriteStocks = [];
 })
 
