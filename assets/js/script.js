@@ -20,6 +20,7 @@
 
 // Modal popup for search query examples "need help searching" with close button
 
+// set up general variables
 var currentDay = document.querySelector("#currentDay");
 currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a");
 const searchButton = document.querySelector("#search-button");
@@ -30,8 +31,10 @@ if (!favoriteStocks) {
     favoriteStocks = [];
 }
 
+// Get favorite stocks out of local storage when page is loaded
 showFavoriteStocks(favoriteStocks);
 
+// Set up the help modal
 var modal = $('#help-modal')
 var helpBtn = $('#helpBtn')
 var span = $('#help-close')
@@ -49,7 +52,6 @@ $(window).click(function (event) {
         modal.removeClass('is-active')
     }
 })
-// end modal
 
 // Get top 10 gainers in today's market
 const key3 = "ff68f94336a3d6f23d221fad0ad0c114";
@@ -63,6 +65,7 @@ fetch('https://8ab2843d-3f90-4753-b9ef-06f11ad750c0.mock.pstmn.io/api/v3/stock_m
         showTopTen(topStocks)
     })
 
+// Load top stocks into windows
 function showTopTen(stock) {
     for (let i = 0; i < 10; i++) {
         var topStock = `<p class="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol}</p>`
@@ -124,6 +127,7 @@ function showNews(stockNews) {
 // Once search button is pressed, go to getFavoriteStock function
 searchButton.addEventListener("click", getFavoriteStockNews);
 
+// Store 4 favorite stocks in local storage
 function getFavoriteStockNews() {
     var favStock = $("input").val();
     // getNews(favStock);
@@ -133,7 +137,6 @@ function getFavoriteStockNews() {
         showFavoriteStocks(favoriteStocks);
     }
 }
-
 
 // Update the favorite stock tile and, when clicked, get the news
 function showFavoriteStocks() {
