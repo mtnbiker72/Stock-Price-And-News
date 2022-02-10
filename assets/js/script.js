@@ -140,6 +140,11 @@ function getNews(topStock) {
 // }
 
 // Display Stock News for the Favorites Buttons
+var newsTitle = document.querySelectorAll(".article-title")
+var newsDescription = document.querySelectorAll(".article-description")
+// var newsURL = documents.querySelectorAll(".article-url")
+
+
 function showNews(stockNews) {
     var newsTitle = document.querySelectorAll(".article-title" + i)
     console.log(newsTitle)
@@ -150,7 +155,6 @@ function showNews(stockNews) {
     newsTitle[i].innerHTML = stockNews.value[0].title
     newsDescription[i].innerHTML = stockNews.value[0].description;
     // newsURL[i].innerHTML = stockNews.value[0].url;
-}
 }
 
 
