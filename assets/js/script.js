@@ -73,9 +73,9 @@ function getNews(stockSymbol) {
 }
 
 function showNews(stockNews) {
-    document.querySelector(".article1").innerHTML = stockNews.data[0].entities[0].name;
-    document.querySelector(".article2").innerHTML = stockNews.data[0].title;
-    document.querySelector(".article3").innerHTML = stockNews.data[0].url;
+    document.querySelector(".article-name").innerHTML = stockNews.data[0].entities[0].name;
+    document.querySelector(".article-title").innerHTML = stockNews.data[0].title;
+    document.querySelector(".article-url").innerHTML = stockNews.data[0].url;
 }
 
 document.addEventListener("click", function(event) {
