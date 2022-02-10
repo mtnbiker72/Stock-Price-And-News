@@ -45,7 +45,8 @@ $(window).click(function (event) {
 // Get top 10 gainers in today's market
 const key3 = "ff68f94336a3d6f23d221fad0ad0c114";
 
-fetch('https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=' + key3)
+fetch('https://8ab2843d-3f90-4753-b9ef-06f11ad750c0.mock.pstmn.io/api/v3/stock_market/gainers?apikey=' + key3)
+// fetch('https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=' + key3)
     .then(function (response) {
         return response.json()
     })
@@ -60,10 +61,11 @@ function showTopTen(stock) {
     }
 }
 
+// Get stock news from NewsAPI
 function getNews(stockSymbol) {
-    // Get stock news from StockData
-    var key2 = config.STOCK_DATA_KEY;
-    fetch(`https://api.stockdata.org/v1/news/all?symbols=${stockSymbol}&filter_entities=true&language=en&api_token=` + key2)
+    var key4 = "1d4f0b3a2439429bb730c61b4f6d2b51"
+    fetch(`GET https://newsapi.org/v2/everything?q=${stockSymbol}&apiKey=` + key4)
+
         .then(function (response) {
             return response.json()
         })
@@ -73,9 +75,12 @@ function getNews(stockSymbol) {
 }
 
 function showNews(stockNews) {
-    document.querySelector(".article-name").innerHTML = stockNews.data[0].entities[0].name;
-    document.querySelector(".article-title").innerHTML = stockNews.data[0].title;
-    document.querySelector(".article-url").innerHTML = stockNews.data[0].url;
+    document.querySelector(".article1").innerHTML = stockNews.data[0].entities[0].name;
+    document.querySelector(".article2").innerHTML = stockNews.data[0].title;
+    document.querySelector(".article3").innerHTML = stockNews.data[0].url;
+    document.querySelector(".article1").innerHTML = stockNews.data[1].entities[0].name;
+    document.querySelector(".article2").innerHTML = stockNews.data[1].title;
+    document.querySelector(".article3").innerHTML = stockNews.data[1].url;
 }
 
 document.addEventListener("click", function(event) {
@@ -86,4 +91,21 @@ document.addEventListener("click", function(event) {
     }
     })
 
+// Once submit button is pressed, go to getFavoriteStock function
+searchButton.addEventListener("click", getFavoriteStock);
+
+function getFavoriteStock(favoriteStock) {
+    fetch('https://financialmodelingprep.com/api/v3/search?query=' + favoriteStock + '&limit=10&exchange=NASDAQ&apikey= + key3')
+    .then(function (response) {
+        return response.json()
+    })
+    .then(function (data) {
+        console.log(data);
+    })   
+}
+
+// Clears local storage
+$('#clear').on('click', function(){
+    localStorage.clear();
+})
 
