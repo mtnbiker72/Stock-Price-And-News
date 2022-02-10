@@ -8,6 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
   <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
@@ -51,12 +57,16 @@
     <button id="search-button" class="btn btn-primary btn-block">Search for Stock Name</button>
   </div>
   <br>
+  <h2>TOP GAINING STOCKS FOR TODAY</h1>
+  
+
   <div class="tile is-ancestor">
     <div class="tile is-parent is-vertical is-6">
       <article id="top-stocks0" class="tile is-child notification is-info">
-        <p class="title"></p>
-        <p class="subtitle"></p>
+    
       </article>
+
+  
 
       <article id="top-stocks1" class="tile is-child notification is-info">
         <p class="title">...tiles</p>
@@ -103,16 +113,49 @@
     </div>
   </div>
 
+  <br>
+
+    <!-- dropdown starts -->
+    <div class="dropdown is-right is-active">
+      <!-- dropdown trigger and text -->
+      <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+          <span>Get News for these Stocks</span>
+          <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+        <div class="dropdown-content">
+          <!-- dropdown content is the news content for each stock -->
+          <div class="dropdown-item">
+            <p class="article-title0 article-description0"></p>  
+            <a href="#" id="url0" class="dropdown-item"></a>
+          </div>
+          <hr class="dropdown-divider">
+          <div class="dropdown-item">
+            <p class="article-title0 article-description0"></p>  
+            <a href="#" id="url0" class="dropdown-item"></a>
+          </div>
+          
+        
+        </div>
+      </div>
+    </div>
+
+    <br> <br>
+  <h2>Your Searched Stocks</h2>
   <div class="tile is-ancestor">
     <div class="tile is-parent is-vertical is-6">
       <article id="favorite-stock0" class="fav-tile tile is-child notification box">
         <div class="article-title"></div>
-        <div class="article-description"></div>
+        <div class="content article-description"></div>
         
       </article>
       <article id="favorite-stock1" class="fav-tile tile is-child notification box">
         <div class="article-title"></div>
-        <div class="article-description"></div>
+        <div class="content article-description"></div>
         
       </article>
     </div>
@@ -120,11 +163,11 @@
     <div class="tile is-parent is-vertical is-6">
       <article id="favorite-stock2" class="fav-tile tile is-child notification box">
         <div class="article-title"></div>
-        <div class="article-description"></div>
+        <div class="content article-description"></div>
       </article>
       <article id="favorite-stock3" class="fav-tile tile is-child notification box">
         <div class="article-title"></div>
-        <div class="article-description"></div>
+        <div class="content article-description"></div>
       </article>
     </div>
   </div>
