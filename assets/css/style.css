@@ -24,3 +24,7 @@ p:hover {
   margin: 0;
   border-radius: 5px;
 }
+
+.fav-tile {
+  background-color: orange !important;
+}

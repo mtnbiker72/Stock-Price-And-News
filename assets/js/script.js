@@ -23,6 +23,14 @@
 var currentDay = document.querySelector("#currentDay");
 currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a");
 const searchButton = document.querySelector("#search-button");
+var favoriteStocks = JSON.parse(localStorage.getItem("favoriteStocks"));
+
+// Determine if favoriteStocks is empty or not
+if (!favoriteStocks) {
+    favoriteStocks = [];
+}
+
+showFavoriteStocks(favoriteStocks);
 
 var modal = $('#help-modal')
 var helpBtn = $('#helpBtn')
@@ -94,8 +102,10 @@ function getNews(topStock) {
 function showNews(stockNews) {
     document.querySelector(".article1-1").innerHTML = stockNews.value[0].title
     document.querySelector(".article1-2").innerHTML = stockNews.value[0].description;
+    document.querySelector(".article1-2").innerHTML = stockNews.value[0].url;
     document.querySelector(".article2-1").innerHTML = stockNews.value[1].title
     document.querySelector(".article2-2").innerHTML = stockNews.value[1].description;
+    document.querySelector(".article2-2").innerHTML = stockNews.value[1].url;
 }
 
 // document.addEventListener("click", function(event) {
@@ -110,9 +120,23 @@ function showNews(stockNews) {
 searchButton.addEventListener("click", getFavoriteStockNews);
 
 function getFavoriteStockNews() {
-    getNews($("input" ).val());
+    var favStock = $("input").val();
+    // getNews(favStock);
+    if (favoriteStocks.indexOf(favStock) === -1) {
+        favoriteStocks.push(favStock);
+        localStorage.setItem('favoriteStocks', JSON.stringify(favoriteStocks));
+        showFavoriteStocks(favoriteStocks);
+    }
 }
 
+
+function showFavoriteStocks() {
+    for (let i = 0; i < 2; i++) {
+        var favoriteStock = `<p class="title" onClick="getNews('${favoriteStocks[i]}')">${favoriteStocks[i]}</p>`
+        document.querySelector("#favorite-stock" + i).innerHTML = favoriteStock;
+    }
+
+}
 // Clears local storage
 $('#clear').on('click', function () {
     localStorage.clear();
