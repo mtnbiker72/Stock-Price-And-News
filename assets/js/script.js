@@ -105,6 +105,7 @@ var newsDescription = document.querySelectorAll(".article-description")
 // var newsURL = documents.querySelectorAll(".article-url")
 
 for (let i = 0; i < 5; i++) {
+
 function showNews(stockNews) {
     newsTitle[i].innerHTML = stockNews.value[i].title
     newsDescription[i].innerHTML = stockNews.value[i].description;
@@ -134,15 +135,21 @@ function getFavoriteStockNews() {
 }
 
 
+// Update the favorite stock tile and, when clicked, get the news
 function showFavoriteStocks() {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 4; i++) {
         var favoriteStock = `<p class="title" onClick="getNews('${favoriteStocks[i]}')">${favoriteStocks[i]}</p>`
         document.querySelector("#favorite-stock" + i).innerHTML = favoriteStock;
     }
-
 }
+
 // Clears local storage
 $('#clear').on('click', function () {
     localStorage.clear();
+    $("#favorite-stock0").empty();
+    $("#favorite-stock1").empty();
+    $("#favorite-stock2").empty();
+    $("#favorite-stock3").empty();
+    favoriteStocks = [];
 })
 
