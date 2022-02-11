@@ -105,7 +105,7 @@ fetch('https://8ab2843d-3f90-4753-b9ef-06f11ad750c0.mock.pstmn.io/api/v3/stock_m
 // Load top stocks into windows
 function showTopTen(stock) {
     for (let i = 0; i < 10; i++) {
-        var topStock = `<p class="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol}</p>`
+        var topStock = `<p class="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol} ${stock[i].changesPercentage.toFixed(2)}%</p>`
         document.querySelector("#top-stocks" + i).innerHTML = topStock;
     }
 }
