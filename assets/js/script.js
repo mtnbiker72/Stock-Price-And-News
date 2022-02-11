@@ -126,44 +126,15 @@ function getNews(topStock) {
         })
 }
 
-// // Get stock news from NewsAPI
-// function getNews(topStock) {
-//     const key4 = "1d4f0b3a2439429bb730c61b4f6d2b51";
-//     fetch(`https://f6e154cc-b08a-4dac-abf1-230c711a10cc.mock.pstmn.io/v2/everything?q=${topStock}&apiKey=` + key4)
-
-//         .then(function (response) {
-//             return response.json()
-//         })
-//         .then(function (stockNews) {
-//             showNews(stockNews)
-//         })
-// }
-
 // Display Stock News for the Favorites Buttons
-var newsTitle = document.querySelectorAll(".article-title")
-var newsDescription = document.querySelectorAll(".article-description")
-// var newsURL = documents.querySelectorAll(".article-url")
-
-
 function showNews(stockNews) {
-    var newsTitle = document.querySelectorAll(".article-title" + i)
-    console.log(newsTitle)
-    var newsDescription = document.querySelectorAll(".article-description" + i)
-    console.log(newsDescription)
-//  var newsURL = documents.querySelectorAll(".article-url")
-    for (let i = 0; i < 5; i++) {
-    newsTitle[i].innerHTML = stockNews.value[0].title
-    newsDescription[i].innerHTML = stockNews.value[0].description;
+    var newsTitle1 = document.querySelectorAll("#headline1");
+    var newsDescription1 = document.querySelectorAll("#description1");
+    // var newsURL = documents.querySelectorAll(".article-url");
+    newsTitle1.innerHTML = stockNews.value[0].title
+    newsDescription1.innerHTML = stockNews.value[0].description;
     // newsURL[i].innerHTML = stockNews.value[0].url;
-}}
-
-// document.addEventListener("click", function(event) {
-//     console.log(event.target)
-//     if (event.target.classList.contains("title")) {
-//     // alert ("I have been clicked")   
-//     document.location.replace("./newspage.html")
-//     }
-//     })
+}
 
 // Once search button is pressed, go to getFavoriteStock function
 searchButton.addEventListener("click", getFavoriteStockNews);
@@ -197,3 +168,11 @@ $('#clear').on('click', function () {
     favoriteStocks = [];
 })
 
+
+// document.addEventListener("click", function(event) {
+//     console.log(event.target)
+//     if (event.target.classList.contains("title")) {
+//     // alert ("I have been clicked")   
+//     document.location.replace("./newspage.html")
+//     }
+//     })
