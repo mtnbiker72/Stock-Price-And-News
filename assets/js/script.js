@@ -165,14 +165,21 @@ function getFavoriteStockNews() {
         favoriteStocks.push(favStock);
         localStorage.setItem('favoriteStocks', JSON.stringify(favoriteStocks));
         showFavoriteStocks(favoriteStocks);
+        getNews(favStock);
     }
 }
 
 // Update the favorite stock tile and, when clicked, get the news
 function showFavoriteStocks() {
-    for (let i = 0; i < 4; i++) {
-        var favoriteStock = `<p class="title" onClick="getNews('${favoriteStocks[i]}')">${favoriteStocks[i]}</p>`
-        document.querySelector("#favorite-stock" + i).innerHTML = favoriteStock;
+    for (let i = 0; i < 6; i++) {
+        if (favoriteStocks[i]) {
+            var favoriteStock = `<p class="title" onClick="getNews('${favoriteStocks[i]}')">${favoriteStocks[i]}</p>`;
+            document.querySelector("#favorite-stock" + i).innerHTML = favoriteStock;
+            document.querySelector("#favorite-stock" + i).style.visibility='visible';
+        }
+        else {
+            document.querySelector("#favorite-stock" + i).style.visibility='hidden'; 
+        }
     }
 }
 
@@ -183,6 +190,8 @@ $('#clear').on('click', function () {
     $("#favorite-stock1").empty();
     $("#favorite-stock2").empty();
     $("#favorite-stock3").empty();
+    $("#favorite-stock4").empty();
+    $("#favorite-stock5").empty();
     favoriteStocks = [];
 })
 
