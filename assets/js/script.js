@@ -111,6 +111,8 @@ function showTopTen(stock) {
 }
 
 function getNews(topStock) {
+    document.querySelector(".news-heading").innerHTML = "News content for: " + topStock;
+    window.scrollTo(0, 0); 
     fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=" + topStock + "&pageNumber=1&pageSize=10&autoCorrect=true&fromPublishedDate=null&toPublishedDate=null", {
         "method": "GET",
         "headers": {
@@ -119,51 +121,38 @@ function getNews(topStock) {
         }
     })
         .then(function (response) {
-            return response.json()
+            return response.json();
         })
         .then(function (stockNews) {
-            showNews(stockNews)
+            console.log(stockNews);
+            showNews(stockNews);
         })
 }
 
-// // Get stock news from NewsAPI
-// function getNews(topStock) {
-//     const key4 = "1d4f0b3a2439429bb730c61b4f6d2b51";
-//     fetch(`https://f6e154cc-b08a-4dac-abf1-230c711a10cc.mock.pstmn.io/v2/everything?q=${topStock}&apiKey=` + key4)
-
-//         .then(function (response) {
-//             return response.json()
-//         })
-//         .then(function (stockNews) {
-//             showNews(stockNews)
-//         })
-// }
-
 // Display Stock News for the Favorites Buttons
-var newsTitle = document.querySelectorAll(".article-title")
-var newsDescription = document.querySelectorAll(".article-description")
-// var newsURL = documents.querySelectorAll(".article-url")
-
-
 function showNews(stockNews) {
-    var newsTitle = document.querySelectorAll(".article-title" + i)
-    console.log(newsTitle)
-    var newsDescription = document.querySelectorAll(".article-description" + i)
-    console.log(newsDescription)
-//  var newsURL = documents.querySelectorAll(".article-url")
-    for (let i = 0; i < 5; i++) {
-    newsTitle[i].innerHTML = stockNews.value[0].title
-    newsDescription[i].innerHTML = stockNews.value[0].description;
-    // newsURL[i].innerHTML = stockNews.value[0].url;
-}}
+    var companyName = document.querySelector(".company-name");
+    var newsTitle1 = document.querySelector(".headline1");
+    var newsDescription1 = document.querySelector(".description1");
+    var url1 = document.querySelector(".url1");
+    var body1 = document.querySelector(".body1");
 
-// document.addEventListener("click", function(event) {
-//     console.log(event.target)
-//     if (event.target.classList.contains("title")) {
-//     // alert ("I have been clicked")   
-//     document.location.replace("./newspage.html")
-//     }
-//     })
+    var newsTitle2 = document.querySelector(".headline2");
+    var newsDescription2 = document.querySelector(".description2");
+    var url2 = document.querySelector(".url2");
+    var body2 = document.querySelector(".body2");
+
+    newsTitle1.innerHTML = "Article Title: " + stockNews.value[0].title
+    newsDescription1.innerHTML = "Description: " + stockNews.value[0].description;
+    url1.innerHTML = "Article URL: " + stockNews.value[0].url;
+    body1.innerHTML = "Article " + stockNews.value[0].body;
+    // image1.innerHTML = stockNews.value[0].image.url;
+
+    newsTitle2.innerHTML = "Article Title: " + stockNews.value[1].title
+    newsDescription2.innerHTML = "Description: " + stockNews.value[1].description;
+    url2.innerHTML = "Article URL: " + stockNews.value[1].url;
+    body2.innerHTML = "Article " + stockNews.value[1].body;
+}
 
 // Once search button is pressed, go to getFavoriteStock function
 searchButton.addEventListener("click", getFavoriteStockNews);
@@ -197,3 +186,11 @@ $('#clear').on('click', function () {
     favoriteStocks = [];
 })
 
+
+// document.addEventListener("click", function(event) {
+//     console.log(event.target)
+//     if (event.target.classList.contains("title")) {
+//     // alert ("I have been clicked")   
+//     document.location.replace("./newspage.html")
+//     }
+//     })
