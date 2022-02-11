@@ -106,7 +106,9 @@ fetch('https://8ab2843d-3f90-4753-b9ef-06f11ad750c0.mock.pstmn.io/api/v3/stock_m
 function showTopTen(stock) {
     for (let i = 0; i < 10; i++) {
         var topStock = `<p class="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol}</p>`
-        document.querySelector("#top-stocks" + i).innerHTML = topStock;
+        var changePercentage = `<p class="subtitle" onClick="getNews('${stock[i].changesPercentage}')">${stock[i].changesPercentage} %⬆︎</p>`
+        document.querySelector("#title" + i).innerHTML = topStock;
+        document.querySelector("#subtitle" + i).innerHTML = changePercentage;
     }
 }
 
@@ -119,12 +121,17 @@ function getNews(topStock) {
         }
     })
         .then(function (response) {
+            console.log(response)
             return response.json()
         })
-        .then(function (stockNews) {
-            showNews(stockNews)
+        // .then(function (stockNews) {
+        //     showNews(stockNews)
+        // })
+        .then(function (data) {
+            console.log(data)
         })
 }
+
 
 // // Get stock news from NewsAPI
 // function getNews(topStock) {
@@ -139,23 +146,21 @@ function getNews(topStock) {
 //         })
 // }
 
-// Display Stock News for the Favorites Buttons
+// Display Stock News for the Selected Top Gaining Stock
 var newsTitle = document.querySelectorAll(".article-title")
 var newsDescription = document.querySelectorAll(".article-description")
 // var newsURL = documents.querySelectorAll(".article-url")
 
-
 function showNews(stockNews) {
-    var newsTitle = document.querySelectorAll(".article-title" + i)
-    console.log(newsTitle)
-    var newsDescription = document.querySelectorAll(".article-description" + i)
-    console.log(newsDescription)
-//  var newsURL = documents.querySelectorAll(".article-url")
-    for (let i = 0; i < 5; i++) {
-    newsTitle[i].innerHTML = stockNews.value[0].title
-    newsDescription[i].innerHTML = stockNews.value[0].description;
-    // newsURL[i].innerHTML = stockNews.value[0].url;
-}}
+    var newsTitle = document.querySelector("#article-title")
+    var newsDescription = document.querySelector("#article-description")
+    var newsBody = document.querySelector("#article-body")
+//  var newsURL = documents.querySelector("#article-url")
+    newsTitle.innerHTML = stockNews.value[0].title
+    newsDescription.innerHTML = stockNews.value[0].description;
+    newsBody.innerHTML = stockNews.value[0].body;
+    // newsURL.innerHTML = stockNews.value[0].url;
+}
 
 // document.addEventListener("click", function(event) {
 //     console.log(event.target)
