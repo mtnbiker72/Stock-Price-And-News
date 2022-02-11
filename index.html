@@ -53,19 +53,15 @@
   <div class="control">
     <input class="input is-hovered is-rounded is-normal" type="text"
       placeholder="Search a stock ticker for news results">
-    <button id="search-button" class="btn btn-primary btn-block">Search for Stock Name</button>
+    <button id="search-button" class="button is-normal">Search for Stock Name</button>
   </div>
   <br>
   <h2>TOP GAINING STOCKS FOR TODAY</h1>
-  
-
+  <br>
   <div class="tile is-ancestor">
     <div class="tile is-parent is-vertical is-6">
       <article id="top-stocks0" class="tile is-child notification is-info">
-    
       </article>
-
-  
 
       <article id="top-stocks1" class="tile is-child notification is-info">
         <p class="title">...tiles</p>
@@ -86,9 +82,7 @@
         <p class="title">Vertical...</p>
         <p class="subtitle">Top tile</p>
       </article>
-    </div>
 
-    <div class="tile is-parent is-vertical is-6">
       <article id="top-stocks5" class="tile is-child notification is-info">
         <p class="title">...tiles</p>
         <p class="subtitle">Bottom tile</p>
@@ -110,66 +104,48 @@
         <p class="subtitle">Bottom tile</p>
       </article>
     </div>
-  </div>
-
-  <br>
-
-    <!-- dropdown starts -->
-    <div class="dropdown is-right is-active">
-      <!-- dropdown trigger and text -->
-      <div class="dropdown-trigger">
-        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-          <span>Get News for these Stocks</span>
-          <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-        </button>
-      </div>
-      <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-        <div class="dropdown-content">
-          <!-- dropdown content is the news content for each stock -->
-          <div class="dropdown-item">
-            <p class="article-title0 article-description0"></p>  
-            <a href="#" id="url0" class="dropdown-item"></a>
-          </div>
-          <hr class="dropdown-divider">
-          <div class="dropdown-item">
-            <p class="article-title0 article-description0"></p>  
-            <a href="#" id="url0" class="dropdown-item"></a>
-          </div>
-          
-        
-        </div>
+    <div class="tile is-parent is-6">
+      <div class="tile is-child is-notification is-info box">
+        <div class="content"> News Content</div>
       </div>
     </div>
-
-    <br> <br>
-  <h2>Your Searched Stocks</h2>
-  <div class="tile is-ancestor">
-    <div class="tile is-parent is-vertical is-6">
-      <article id="favorite-stock0" class="fav-tile tile is-child notification box">
-        <div class="article-title"></div>
-        <div class="content article-description"></div>
-        
-      </article>
-      <article id="favorite-stock1" class="fav-tile tile is-child notification box">
-        <div class="article-title"></div>
-        <div class="content article-description"></div>
-        
-      </article>
-    </div>
-
-    <div class="tile is-parent is-vertical is-6">
-      <article id="favorite-stock2" class="fav-tile tile is-child notification box">
-        <div class="article-title"></div>
-        <div class="content article-description"></div>
-      </article>
-      <article id="favorite-stock3" class="fav-tile tile is-child notification box">
-        <div class="article-title"></div>
-        <div class="content article-description"></div>
-      </article>
-    </div>
   </div>
+
+    <h2>Your Searched Stocks</h2>
+    <div class = "tile is-ancestor">
+      <div class="tile is-parent is-vertical is-4">
+        <article id="favorite-stock0" class="fav-tile tile is-child notification box">
+          <div class="article-title"></div>
+          <div class="content article-description"></div>
+        </article>
+        <article id="favorite-stock1" class="fav-tile tile is-child notification box">
+          <div class="article-title"></div>
+          <div class="content article-description"></div>
+        </article>
+      </div>
+      <div class="tile is-parent is-vertical is-4">
+        <article id="favorite-stock2" class="fav-tile tile is-child notification box">
+          <div class="article-title"></div>
+          <div class="content article-description"></div>
+        </article>
+        <article id="favorite-stock3" class="fav-tile tile is-child notification box">
+          <div class="article-title"></div>
+          <div class="content article-description"></div>
+        </article>
+      </div>
+      <div class="tile is-parent is-vertical is-4">
+        <article id="favorite-stock4" class="fav-tile tile is-child notification box">
+          <div class="article-title"></div>
+          <div class="content article-description"></div>
+        </article>
+        <article id="favorite-stock5" class="fav-tile tile is-child notification box">
+          <div class="article-title"></div>
+          <div class="content article-description"></div>
+        </article>
+      </div>
+    </div>
+
+
   
 
 
@@ -181,6 +157,33 @@
   <div class="article2-2"> </div>
   <div class="article2-3"> </div>
 
+    <!-- dropdown starts
+    <div class="dropdown is-right is-active">
+      dropdown trigger and text 
+      <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+          <span>Get News for these Stocks</span>
+          <span class="icon is-small">
+            <i class="fas fa-angle-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu2" role="menu">
+        <div class="dropdown-content">
+       dropdown content is the news content for each stock 
+          <div class="dropdown-item">
+            <p class="article-title0 article-description0"></p>  
+            <a href="#" id="url0" class="dropdown-item"></a>
+          </div>
+          <hr class="dropdown-divider">
+          <div class="dropdown-item">
+            <p class="article-title1 article-description1"></p>  
+            <a href="#" id="url1" class="dropdown-item"></a>
+          </div>
+          
+        </div>
+      </div>
+    </div> -->
 
   <button id="clear" class="button is-danger">Clear your custom Stock Tickers</button>
 
