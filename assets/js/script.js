@@ -121,17 +121,12 @@ function getNews(topStock) {
         }
     })
         .then(function (response) {
-            console.log(response)
             return response.json()
         })
-        // .then(function (stockNews) {
-        //     showNews(stockNews)
-        // })
-        .then(function (data) {
-            console.log(data)
+        .then(function (stockNews) {
+            showNews(stockNews)
         })
 }
-
 
 // // Get stock news from NewsAPI
 // function getNews(topStock) {
@@ -161,6 +156,7 @@ function showNews(stockNews) {
     newsBody.innerHTML = stockNews.value[0].body;
     // newsURL.innerHTML = stockNews.value[0].url;
 }
+
 
 // document.addEventListener("click", function(event) {
 //     console.log(event.target)

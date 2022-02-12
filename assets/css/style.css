@@ -51,6 +51,6 @@ justify-content: space-around;
 .content {
 font-family: 'Permanent Marker', cursive;
 font-size: 15px;
-display: flex; 
+display: block; 
 justify-content: space-around;
 }
