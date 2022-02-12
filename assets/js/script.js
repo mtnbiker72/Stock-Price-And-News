@@ -91,8 +91,8 @@ $(window).click(function (event) {
 // Get top 10 gainers in today's market
 const key3 = "ff68f94336a3d6f23d221fad0ad0c114";
 
-fetch('https://8ab2843d-3f90-4753-b9ef-06f11ad750c0.mock.pstmn.io/api/v3/stock_market/gainers?apikey=' + key3)
-    // fetch('https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=' + key3)
+// fetch('https://8ab2843d-3f90-4753-b9ef-06f11ad750c0.mock.pstmn.io/api/v3/stock_market/gainers?apikey=' + key3)
+    fetch('https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=' + key3)
     .then(function (response) {
         return response.json()
     })
@@ -103,8 +103,8 @@ fetch('https://8ab2843d-3f90-4753-b9ef-06f11ad750c0.mock.pstmn.io/api/v3/stock_m
 // Load top stocks into windows
 function showTopTen(stock) {
     for (let i = 0; i < 10; i++) {
-        var topStock = `<p class="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol}</p>`
-        var changePercentage = `<p class="subtitle" onClick="getNews('${stock[i].changesPercentage}')">${stock[i].changesPercentage} %⬆︎</p>`
+        var topStock = `<p id="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol}</p>`
+        var changePercentage = `<p id="subtitle" onClick="getNews('${stock[i].symbol}')">${stock[i].changesPercentage.toFixed(2)}%⬆</p>`
         document.querySelector("#title" + i).innerHTML = topStock;
         document.querySelector("#subtitle" + i).innerHTML = changePercentage;
     }
