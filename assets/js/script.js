@@ -105,6 +105,7 @@ fetch('https://8ab2843d-3f90-4753-b9ef-06f11ad750c0.mock.pstmn.io/api/v3/stock_m
 // Load top stocks into windows
 function showTopTen(stock) {
     for (let i = 0; i < 10; i++) {
+
         var topStock = `<p class="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol}</p>`
         var changePercentage = `<p class="subtitle" onClick="getNews('${stock[i].changesPercentage}')">${stock[i].changesPercentage} %⬆︎</p>`
         document.querySelector("#title" + i).innerHTML = topStock;
@@ -113,6 +114,8 @@ function showTopTen(stock) {
 }
 
 function getNews(topStock) {
+    document.querySelector(".news-heading").innerHTML = "News content for: " + topStock;
+    window.scrollTo(0, 0); 
     fetch("https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/NewsSearchAPI?q=" + topStock + "&pageNumber=1&pageSize=10&autoCorrect=true&fromPublishedDate=null&toPublishedDate=null", {
         "method": "GET",
         "headers": {
@@ -121,12 +124,14 @@ function getNews(topStock) {
         }
     })
         .then(function (response) {
-            return response.json()
+            return response.json();
         })
         .then(function (stockNews) {
-            showNews(stockNews)
+            console.log(stockNews);
+            showNews(stockNews);
         })
 }
+
 
 // // Get stock news from NewsAPI
 // function getNews(topStock) {
@@ -166,6 +171,32 @@ function showNews(stockNews) {
 //     }
 //     })
 
+// Display Stock News for the Favorites Buttons
+function showNews(stockNews) {
+    var companyName = document.querySelector(".company-name");
+    var newsTitle1 = document.querySelector(".headline1");
+    var newsDescription1 = document.querySelector(".description1");
+    var url1 = document.querySelector(".url1");
+    var body1 = document.querySelector(".body1");
+
+    var newsTitle2 = document.querySelector(".headline2");
+    var newsDescription2 = document.querySelector(".description2");
+    var url2 = document.querySelector(".url2");
+    var body2 = document.querySelector(".body2");
+
+    newsTitle1.innerHTML = "Article Title: " + stockNews.value[0].title
+    newsDescription1.innerHTML = "Description: " + stockNews.value[0].description;
+    url1.innerHTML = "Article URL: " + stockNews.value[0].url;
+    body1.innerHTML = "Article " + stockNews.value[0].body;
+    // image1.innerHTML = stockNews.value[0].image.url;
+
+    newsTitle2.innerHTML = "Article Title: " + stockNews.value[1].title
+    newsDescription2.innerHTML = "Description: " + stockNews.value[1].description;
+    url2.innerHTML = "Article URL: " + stockNews.value[1].url;
+    body2.innerHTML = "Article " + stockNews.value[1].body;
+}
+
+
 // Once search button is pressed, go to getFavoriteStock function
 searchButton.addEventListener("click", getFavoriteStockNews);
 
@@ -177,14 +208,21 @@ function getFavoriteStockNews() {
         favoriteStocks.push(favStock);
         localStorage.setItem('favoriteStocks', JSON.stringify(favoriteStocks));
         showFavoriteStocks(favoriteStocks);
+        getNews(favStock);
     }
 }
 
 // Update the favorite stock tile and, when clicked, get the news
 function showFavoriteStocks() {
-    for (let i = 0; i < 4; i++) {
-        var favoriteStock = `<p class="title" onClick="getNews('${favoriteStocks[i]}')">${favoriteStocks[i]}</p>`
-        document.querySelector("#favorite-stock" + i).innerHTML = favoriteStock;
+    for (let i = 0; i < 6; i++) {
+        if (favoriteStocks[i]) {
+            var favoriteStock = `<p class="title" onClick="getNews('${favoriteStocks[i]}')">${favoriteStocks[i]}</p>`;
+            document.querySelector("#favorite-stock" + i).innerHTML = favoriteStock;
+            document.querySelector("#favorite-stock" + i).style.visibility='visible';
+        }
+        else {
+            document.querySelector("#favorite-stock" + i).style.visibility='hidden'; 
+        }
     }
 }
 
@@ -195,6 +233,16 @@ $('#clear').on('click', function () {
     $("#favorite-stock1").empty();
     $("#favorite-stock2").empty();
     $("#favorite-stock3").empty();
+    $("#favorite-stock4").empty();
+    $("#favorite-stock5").empty();
     favoriteStocks = [];
 })
 
+
+// document.addEventListener("click", function(event) {
+//     console.log(event.target)
+//     if (event.target.classList.contains("title")) {
+//     // alert ("I have been clicked")   
+//     document.location.replace("./newspage.html")
+//     }
+//     })

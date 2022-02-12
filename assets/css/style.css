@@ -1,3 +1,6 @@
+body {
+  margin: 20px;
+}
 h1 {
 font-family: 'Permanent Marker', cursive;
 font-size: 90px;
@@ -53,4 +56,14 @@ font-family: 'Permanent Marker', cursive;
 font-size: 15px;
 display: block; 
 justify-content: space-around;
+}
+
+.company-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.news-content {
+  font-size: 20px;
+  font-weight: bold;
 }

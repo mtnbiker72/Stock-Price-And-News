@@ -8,12 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-  <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
@@ -40,7 +36,8 @@
 
     <div class="modal-content">
       <div class="box">
-        <p>A Stock Ticker usually contains four capital letters. To view all stock symbols with their company names, </p> <a href="https://stockanalysis.com/stocks/">Visit StockAnalysis.com!</a>
+        <p>A Stock Ticker usually contains 1-5 capital letters. To view all stock symbols with their company names: </p>
+        <a target="_blank" href="https://stockanalysis.com/stocks/">Visit StockAnalysis.com!</a>
       </div>
     </div>
     <button id="help-close" class="modal-close is-large js-modal-trigger button is-danger"
@@ -57,6 +54,7 @@
   </div>
   <br>
   <h2>TOP GAINING STOCKS FOR TODAY</h1>
+
   <br>
   <div class="tile is-ancestor">
     <div class="tile is-parent is-vertical is-6">
@@ -114,13 +112,29 @@
           <h4 id="article-description"></h4>
           <article id="article-body"></article>
           <footer id="article-url"></footer>
+
+      <div class="tile is-parent is-6">
+        <div class="tile is-child is-notification is-info box">
+          <div class="content news-content news-heading"> News Content </div>
+          <!-- First Article -->
+          <p class="headline1 news-content"></p>
+          <p class="description1 news-content"></p>
+          <p class="url1 news-content"></p>
+          <p class="body1"></p>
+          <!-- Second article -->
+          <br> <br>
+          <p class="headline2 news-content"></p>
+          <p class="description2"></p>
+          <p class="url2 news-content"></p>
+          <p class="body2"></p>
+          <!-- Second article -->
+
         </div>
       </div>
     </div>
-  </div>
 
     <h2>Your Searched Stocks</h2>
-    <div class = "tile is-ancestor">
+    <div class="tile is-ancestor">
       <div class="tile is-parent is-vertical is-4">
         <article id="favorite-stock0" class="fav-tile tile is-child notification box">
         </article>
@@ -140,18 +154,6 @@
         </article>
       </div>
     </div>
-
-
-  
-
-
-  <!-- Heather Stuff -->
-  <div class="article1-1"> </div>
-  <div class="article1-2"> </div>
-  <div class="article1-3"> </div>
-  <div class="article2-1"> </div>
-  <div class="article2-2"> </div>
-  <div class="article2-3"> </div>
 
     <!-- dropdown starts
     <div class="dropdown is-right is-active">
@@ -181,12 +183,12 @@
       </div>
     </div> -->
 
-  <button id="clear" class="button is-danger">Clear your custom Stock Tickers</button>
+    <button id="clear" class="button is-danger">Clear your custom Stock Tickers</button>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script type='text/javascript' src='./assets/js/config.js'></script>
-  <script src="./assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type='text/javascript' src='./assets/js/config.js'></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
