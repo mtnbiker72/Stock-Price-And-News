@@ -105,8 +105,8 @@ const key3 = "ff68f94336a3d6f23d221fad0ad0c114";
 // Load top stocks into windows
 function showTopTen(stock) {
     for (let i = 0; i < 10; i++) {
-        var topStock = `<p id="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol}</p>`
-        var changePercentage = `<p id="subtitle" onClick="getNews('${stock[i].symbol}')">${stock[i].changesPercentage.toFixed(2)}%⬆</p>`
+        var topStock = `<p class="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol}</p>`
+        var changePercentage = `<p class="subtitle" onClick="getNews('${stock[i].changesPercentage}')">${stock[i].changesPercentage} %⬆︎</p>`
         document.querySelector("#title" + i).innerHTML = topStock;
         document.querySelector("#subtitle" + i).innerHTML = changePercentage;
     }
@@ -130,6 +130,45 @@ function getNews(topStock) {
             showNews(stockNews);
         })
 }
+
+
+// // Get stock news from NewsAPI
+// function getNews(topStock) {
+//     const key4 = "1d4f0b3a2439429bb730c61b4f6d2b51";
+//     fetch(`https://f6e154cc-b08a-4dac-abf1-230c711a10cc.mock.pstmn.io/v2/everything?q=${topStock}&apiKey=` + key4)
+
+//         .then(function (response) {
+//             return response.json()
+//         })
+//         .then(function (stockNews) {
+//             showNews(stockNews)
+//         })
+// }
+
+// Display Stock News for the Selected Top Gaining Stock
+var newsTitle = document.querySelectorAll(".article-title")
+var newsDescription = document.querySelectorAll(".article-description")
+// var newsURL = documents.querySelectorAll(".article-url")
+
+function showNews(stockNews) {
+    var newsTitle = document.querySelector("#article-title")
+    var newsDescription = document.querySelector("#article-description")
+    var newsBody = document.querySelector("#article-body")
+//  var newsURL = documents.querySelector("#article-url")
+    newsTitle.innerHTML = stockNews.value[0].title
+    newsDescription.innerHTML = stockNews.value[0].description;
+    newsBody.innerHTML = stockNews.value[0].body;
+    // newsURL.innerHTML = stockNews.value[0].url;
+}
+
+
+// document.addEventListener("click", function(event) {
+//     console.log(event.target)
+//     if (event.target.classList.contains("title")) {
+//     // alert ("I have been clicked")   
+//     document.location.replace("./newspage.html")
+//     }
+//     })
 
 // Display Stock News for the Favorites Buttons
 function showNews(stockNews) {
@@ -155,6 +194,7 @@ function showNews(stockNews) {
     url2.innerHTML = "Article URL: " + stockNews.value[1].url;
     body2.innerHTML = "Article " + stockNews.value[1].body;
 }
+
 
 // Once search button is pressed, go to getFavoriteStock function
 searchButton.addEventListener("click", getFavoriteStockNews);
