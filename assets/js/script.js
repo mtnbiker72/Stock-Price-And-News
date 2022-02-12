@@ -67,24 +67,9 @@ function getNews(topStock) {
             return response.json();
         })
         .then(function (stockNews) {
-            console.log(stockNews);
             showNews(stockNews);
         })
 }
-
-
-// // Get stock news from NewsAPI
-// function getNews(topStock) {
-//     const key4 = "1d4f0b3a2439429bb730c61b4f6d2b51";
-//     fetch(`https://f6e154cc-b08a-4dac-abf1-230c711a10cc.mock.pstmn.io/v2/everything?q=${topStock}&apiKey=` + key4)
-
-//         .then(function (response) {
-//             return response.json()
-//         })
-//         .then(function (stockNews) {
-//             showNews(stockNews)
-//         })
-// }
 
 // Display Stock News for the Selected Top Gaining Stock
 var newsTitle = document.querySelectorAll(".article-title")
@@ -95,11 +80,9 @@ function showNews(stockNews) {
     var newsTitle = document.querySelector("#article-title")
     var newsDescription = document.querySelector("#article-description")
     var newsBody = document.querySelector("#article-body")
-//  var newsURL = documents.querySelector("#article-url")
     newsTitle.innerHTML = stockNews.value[0].title
     newsDescription.innerHTML = stockNews.value[0].description;
     newsBody.innerHTML = stockNews.value[0].body;
-    // newsURL.innerHTML = stockNews.value[0].url;
 }
 
 // Display Stock News for the Favorites Buttons
@@ -133,7 +116,7 @@ function showNews(stockNews) {
 // Once search button is pressed, go to getFavoriteStock function
 searchButton.addEventListener("click", getFavoriteStockNews);
 
-// Store 4 favorite stocks in local storage
+// Store 6 favorite stocks in local storage
 function getFavoriteStockNews() {
     var favStock = $("input").val();
     // getNews(favStock);
@@ -141,7 +124,7 @@ function getFavoriteStockNews() {
         favoriteStocks.push(favStock);
         localStorage.setItem('favoriteStocks', JSON.stringify(favoriteStocks));
         showFavoriteStocks(favoriteStocks);
-        // getNews(favStock);
+        getNews(favStock);
     }
 }
 
