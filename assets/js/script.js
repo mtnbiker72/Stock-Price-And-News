@@ -1,62 +1,3 @@
-//  Emerald - Create template in html
-// Emerald - moment.js time and date (or equivalent)
-
-//  Heather - Call stock API to top 10 trending stock in US market
-// stretch goal - allow them to chose their market
-// display stocks and company names (as drop down list) 
-// make them selectable
-
-// Area of input for user to lookup their stock symbol
-// Autocomplete stock symbol lookup
-// Store in local storage recently searched stocks
-// Stretch goal - allow user to input company name and convert to ticker symbol
-
-// Heather - Call news API with selected stock as parameters
-// Present the news articles
-// Stretch goal - link to the article
-
-// Stretch - ability to remove stocks from favorites
-
-
-// Modal popup for search query examples "need help searching" with close button
-
-// Get all dropdowns on the page that aren't hoverable.
-const dropdowns = document.querySelectorAll('.dropdown:not(.is-hoverable)');
-
-if (dropdowns.length > 0) {
-  // For each dropdown, add event handler to open on click.
-  dropdowns.forEach(function(el) {
-    el.addEventListener('click', function(e) {
-      e.stopPropagation();
-      el.classList.toggle('is-active');
-    });
-  });
-
-  // If user clicks outside dropdown, close it.
-  document.addEventListener('click', function(e) {
-    closeDropdowns();
-  });
-}
-
-/*
- * Close dropdowns by removing `is-active` class.
- */
-function closeDropdowns() {
-  dropdowns.forEach(function(el) {
-    el.classList.remove('is-active');
-  });
-}
-
-// Close dropdowns if ESC pressed
-document.addEventListener('keydown', function (event) {
-  let e = event || window.event;
-  if (e.key === 'Esc' || e.key === 'Escape') {
-    closeDropdowns();
-  }
-});
-
-
-
 // set up general variables
 var currentDay = document.querySelector("#currentDay");
 currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a");
@@ -106,7 +47,7 @@ const key3 = "ff68f94336a3d6f23d221fad0ad0c114";
 function showTopTen(stock) {
     for (let i = 0; i < 10; i++) {
         var topStock = `<p class="title" onClick="getNews('${stock[i].symbol}')">${stock[i].symbol}</p>`
-        var changePercentage = `<p class="subtitle" onClick="getNews('${stock[i].changesPercentage}')">${stock[i].changesPercentage} %⬆︎</p>`
+        var changePercentage = `<p class="subtitle" onClick="getNews('${stock[i].symbol}')">${stock[i].changesPercentage.toFixed(2)}%⬆</p>`
         document.querySelector("#title" + i).innerHTML = topStock;
         document.querySelector("#subtitle" + i).innerHTML = changePercentage;
     }
@@ -172,7 +113,7 @@ function showNews(stockNews) {
 
 // Display Stock News for the Favorites Buttons
 function showNews(stockNews) {
-    var companyName = document.querySelector(".company-name");
+    // var companyName = document.querySelector(".company-name");
     var newsTitle1 = document.querySelector(".headline1");
     var newsDescription1 = document.querySelector(".description1");
     var url1 = document.querySelector(".url1");
@@ -183,16 +124,16 @@ function showNews(stockNews) {
     var url2 = document.querySelector(".url2");
     var body2 = document.querySelector(".body2");
 
-    newsTitle1.innerHTML = "Article Title: " + stockNews.value[0].title
+    newsTitle1.innerHTML =stockNews.value[0].title
     newsDescription1.innerHTML = "Description: " + stockNews.value[0].description;
-    url1.innerHTML = "Article URL: " + stockNews.value[0].url;
-    body1.innerHTML = "Article " + stockNews.value[0].body;
+    url1.href =stockNews.value[0].url;
+    body1.innerHTML =stockNews.value[0].body;
     // image1.innerHTML = stockNews.value[0].image.url;
 
-    newsTitle2.innerHTML = "Article Title: " + stockNews.value[1].title
+    newsTitle2.innerHTML =stockNews.value[1].title
     newsDescription2.innerHTML = "Description: " + stockNews.value[1].description;
-    url2.innerHTML = "Article URL: " + stockNews.value[1].url;
-    body2.innerHTML = "Article " + stockNews.value[1].body;
+    url2.href =stockNews.value[1].url;
+    body2.innerHTML =stockNews.value[1].body;
 }
 
 
@@ -207,7 +148,7 @@ function getFavoriteStockNews() {
         favoriteStocks.push(favStock);
         localStorage.setItem('favoriteStocks', JSON.stringify(favoriteStocks));
         showFavoriteStocks(favoriteStocks);
-        getNews(favStock);
+        // getNews(favStock);
     }
 }
 
@@ -236,12 +177,3 @@ $('#clear').on('click', function () {
     $("#favorite-stock5").empty();
     favoriteStocks = [];
 })
-
-
-// document.addEventListener("click", function(event) {
-//     console.log(event.target)
-//     if (event.target.classList.contains("title")) {
-//     // alert ("I have been clicked")   
-//     document.location.replace("./newspage.html")
-//     }
-//     })

@@ -8,8 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
   <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
@@ -36,8 +40,7 @@
 
     <div class="modal-content">
       <div class="box">
-        <p>A Stock Ticker usually contains 1-5 capital letters. To view all stock symbols with their company names: </p>
-        <a target="_blank" href="https://stockanalysis.com/stocks/">Visit StockAnalysis.com!</a>
+        <p>A Stock Ticker usually contains four capital letters. To view all stock symbols with their company names, </p> <a href="https://stockanalysis.com/stocks/">Visit StockAnalysis.com!</a>
       </div>
     </div>
     <button id="help-close" class="modal-close is-large js-modal-trigger button is-danger"
@@ -48,7 +51,7 @@
   <h1>ShyGuy Finance</h1>
 
   <div class="control">
-    <input class="input is-hovered is-rounded is-normal" type="text"
+    <input class="input is-hovered is-normal" type="text"
       placeholder="Search a stock ticker for news results">
     <button id="search-button" class="button is-normal">Search for Stock Name</button>
   </div>
@@ -107,26 +110,32 @@
       </div>
       <div class="tile is-parent is-6">
         <div class="tile is-child is-notification is-info box">
-          <div class="content news-content news-heading"> News Content </div>
+          <div class="news-content news-heading"></div>
+          <div class="content">
           <!-- First Article -->
           <p class="headline1 news-content"></p>
           <p class="description1 news-content"></p>
-          <p class="url1 news-content"></p>
+          <a class="url1 news-content" href="">Read more..</a>
           <p class="body1"></p>
           <!-- Second article -->
           <br> <br>
           <p class="headline2 news-content"></p>
           <p class="description2"></p>
-          <p class="url2 news-content"></p>
+          <a class="url2 news-content" href="">Read More..</a>
           <p class="body2"></p>
+<<<<<<< HEAD
+        </div>
+=======
           <!-- Second article -->
 
+>>>>>>> f405e9a58da3f57ea7b6ee48054df5c80b5ecc8e
         </div>
       </div>
     </div>
+  </div>
 
     <h2>Your Searched Stocks</h2>
-    <div class="tile is-ancestor">
+    <div class = "tile is-ancestor">
       <div class="tile is-parent is-vertical is-4">
         <article id="favorite-stock0" class="fav-tile tile is-child notification box">
         </article>
@@ -147,40 +156,12 @@
       </div>
     </div>
 
-    <!-- dropdown starts
-    <div class="dropdown is-right is-active">
-      dropdown trigger and text 
-      <div class="dropdown-trigger">
-        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-          <span>Get News for these Stocks</span>
-          <span class="icon is-small">
-            <i class="fas fa-angle-down" aria-hidden="true"></i>
-          </span>
-        </button>
-      </div>
-      <div class="dropdown-menu" id="dropdown-menu2" role="menu">
-        <div class="dropdown-content">
-       dropdown content is the news content for each stock 
-          <div class="dropdown-item">
-            <p class="article-title0 article-description0"></p>  
-            <a href="#" id="url0" class="dropdown-item"></a>
-          </div>
-          <hr class="dropdown-divider">
-          <div class="dropdown-item">
-            <p class="article-title1 article-description1"></p>  
-            <a href="#" id="url1" class="dropdown-item"></a>
-          </div>
-          
-        </div>
-      </div>
-    </div> -->
+  <button id="clear" class="button is-danger">Clear your custom Stock Tickers</button>
 
-    <button id="clear" class="button is-danger">Clear your custom Stock Tickers</button>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script type='text/javascript' src='./assets/js/config.js'></script>
-    <script src="./assets/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script type='text/javascript' src='./assets/js/config.js'></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
