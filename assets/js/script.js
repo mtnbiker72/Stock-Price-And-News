@@ -112,15 +112,6 @@ function showTopTen(stock) {
     }
 }
 
-// function showTopTen(stock) {
-//     for (let i = 0; i < 10; i++) {
-//         var topStock = `<p class=“title” onClick=“getNews(‘${stock[i].symbol}‘)“>${stock[i].symbol}</p>`
-//         var changePercentage = `<p class=“subtitle” onClick=“getNews(‘${stock[i].symbol}‘)“>${stock[i].changesPercentage.toFixed(2)} %⬆︎</p>`
-//         document.querySelector("#title" + i).innerHTML = topStock;
-//         document.querySelector("#subtitle" + i).innerHTML = changePercentage;
-//     }
-// }
-
 function getNews(topStock) {
     document.querySelector(".news-heading").innerHTML = "News content for: " + topStock;
     window.scrollTo(0, 0); 
