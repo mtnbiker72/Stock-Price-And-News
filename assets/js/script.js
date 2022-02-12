@@ -55,8 +55,6 @@ document.addEventListener('keydown', function (event) {
   }
 });
 
-
-
 // set up general variables
 var currentDay = document.querySelector("#currentDay");
 currentDay.innerHTML = moment().format("dddd, MMMM Do YYYY <br> h:mm:ss a");
@@ -129,39 +127,31 @@ function getNews(topStock) {
             console.log(stockNews);
             showNews(stockNews);
         })
-// }
+}
 
 // Display Stock News for the Favorites Buttons
 function showNews(stockNews) {
-    var newsTitle = document.querySelector("#article-title")
-    var newsDescription = document.querySelector("#article-description")
-    var newsBody = document.querySelector("#article-body")
-//  var newsURL = documents.querySelector("#article-url")
-    newsTitle.innerHTML = stockNews.value[0].title
-    newsDescription.innerHTML = stockNews.value[0].description;
-    newsBody.innerHTML = stockNews.value[0].body;
-    // newsURL.innerHTML = stockNews.value[0].url;
-    // var companyName = document.querySelector(".company-name");
-    // var newsTitle1 = document.querySelector(".headline1");
-    // var newsDescription1 = document.querySelector(".description1");
-    // var url1 = document.querySelector(".url1");
-    // var body1 = document.querySelector(".body1");
+    var companyName = document.querySelector(".company-name");
+    var newsTitle1 = document.querySelector(".headline1");
+    var newsDescription1 = document.querySelector(".description1");
+    var url1 = document.querySelector(".url1");
+    var body1 = document.querySelector(".body1");
 
-    // var newsTitle2 = document.querySelector(".headline2");
-    // var newsDescription2 = document.querySelector(".description2");
-    // var url2 = document.querySelector(".url2");
-    // var body2 = document.querySelector(".body2");
+    var newsTitle2 = document.querySelector(".headline2");
+    var newsDescription2 = document.querySelector(".description2");
+    var url2 = document.querySelector(".url2");
+    var body2 = document.querySelector(".body2");
 
-    // newsTitle1.innerHTML = "Article Title: " + stockNews.value[0].title
-    // newsDescription1.innerHTML = "Description: " + stockNews.value[0].description;
-    // url1.innerHTML = "Article URL: " + stockNews.value[0].url;
-    // body1.innerHTML = "Article " + stockNews.value[0].body;
-    // // image1.innerHTML = stockNews.value[0].image.url;
+    newsTitle1.innerHTML = "Article Title: " + stockNews.value[0].title
+    newsDescription1.innerHTML = "Description: " + stockNews.value[0].description;
+    url1.innerHTML = "Article URL: " + stockNews.value[0].url;
+    body1.innerHTML = "Article " + stockNews.value[0].body;
+    // image1.innerHTML = stockNews.value[0].image.url;
 
-    // newsTitle2.innerHTML = "Article Title: " + stockNews.value[1].title
-    // newsDescription2.innerHTML = "Description: " + stockNews.value[1].description;
-    // url2.innerHTML = "Article URL: " + stockNews.value[1].url;
-    // body2.innerHTML = "Article " + stockNews.value[1].body;
+    newsTitle2.innerHTML = "Article Title: " + stockNews.value[1].title
+    newsDescription2.innerHTML = "Description: " + stockNews.value[1].description;
+    url2.innerHTML = "Article URL: " + stockNews.value[1].url;
+    body2.innerHTML = "Article " + stockNews.value[1].body;
 }
 
 // Once search button is pressed, go to getFavoriteStock function
