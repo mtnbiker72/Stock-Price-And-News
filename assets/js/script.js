@@ -102,15 +102,6 @@ function showNews(stockNews) {
     // newsURL.innerHTML = stockNews.value[0].url;
 }
 
-
-// document.addEventListener("click", function(event) {
-//     console.log(event.target)
-//     if (event.target.classList.contains("title")) {
-//     // alert ("I have been clicked")   
-//     document.location.replace("./newspage.html")
-//     }
-//     })
-
 // Display Stock News for the Favorites Buttons
 function showNews(stockNews) {
     // var companyName = document.querySelector(".company-name");
@@ -126,13 +117,15 @@ function showNews(stockNews) {
 
     newsTitle1.innerHTML =stockNews.value[0].title
     newsDescription1.innerHTML = "Description: " + stockNews.value[0].description;
-    url1.href =stockNews.value[0].url;
+    url1.href = stockNews.value[0].url;
+    url1.innerHTML = "Read More ...";
     body1.innerHTML =stockNews.value[0].body;
     // image1.innerHTML = stockNews.value[0].image.url;
 
     newsTitle2.innerHTML =stockNews.value[1].title
     newsDescription2.innerHTML = "Description: " + stockNews.value[1].description;
-    url2.href =stockNews.value[1].url;
+    url2.href = stockNews.value[1].url;
+    url2.innerHTML = "Read More ...";
     body2.innerHTML =stockNews.value[1].body;
 }
 
