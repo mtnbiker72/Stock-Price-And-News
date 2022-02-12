@@ -1,6 +1,7 @@
 # Project1-Finance
 
 Our page link: https://mtnbiker72.github.io/Project1-Finance/
+Repo:  https://github.com/mtnbiker72/Project1-Finance
 
 User Story:
 AS AN investor
