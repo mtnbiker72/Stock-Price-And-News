@@ -1,5 +1,7 @@
 # Project1-Finance
 
+Our page link: https://mtnbiker72.github.io/Project1-Finance/
+
 User Story:
 AS AN investor
 I WANT to see the trending stocks with news headlines about the company
@@ -31,4 +33,4 @@ These new stocks are tracked in local storage (which the user can clear at any t
 
 Here's what it looks like:
 
-Our page link:
+![Getting Started](./MainScreenShot.png)
