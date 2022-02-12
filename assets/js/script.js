@@ -72,20 +72,6 @@ function getNews(topStock) {
         })
 }
 
-
-// // Get stock news from NewsAPI
-// function getNews(topStock) {
-//     const key4 = "1d4f0b3a2439429bb730c61b4f6d2b51";
-//     fetch(`https://f6e154cc-b08a-4dac-abf1-230c711a10cc.mock.pstmn.io/v2/everything?q=${topStock}&apiKey=` + key4)
-
-//         .then(function (response) {
-//             return response.json()
-//         })
-//         .then(function (stockNews) {
-//             showNews(stockNews)
-//         })
-// }
-
 // Display Stock News for the Selected Top Gaining Stock
 var newsTitle = document.querySelectorAll(".article-title")
 var newsDescription = document.querySelectorAll(".article-description")
